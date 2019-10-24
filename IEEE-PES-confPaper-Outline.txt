@@ -1,0 +1,40 @@
+
+\title{Effect of Governor Deadband on Valve Travel using Long-Term Dynamic Simulation}
+
+\author{\IEEEauthorblockN{Thad Haines and Matt Donnelly}
+\IEEEauthorblockA{School of Mines and Engineering\\
+Montana Technological University\\
+Butte, Montana 59701%
+}}
+
+\section{Introduction}
+Should cover:
+the reason for using deadbands, 
+Kou example of how simulating deadbands is important but typically ignored,
+deadband considered in transient stability time frame, not long-term,
+possible real life benefits of improved deadbands
+there doesn't seem to be a valve movement metric, instead some `power hours' calculation is used.
+
+\section{Implementation of Deadbands}
+NERC suggestions for droop and deadband
+
+\subsection{Types of Deadbands}
+intentional vs unintentional
+None, step, no-step, non-linear droop.
+and equations for calculating
+
+\subsection{ERCOT Experience}
+Improved freq deviation (elimination of `flat top' effect) 2012 
+creation of TRE-BAL-001...
+
+\section{Explanation of Simulation Technique}
+Why not use transient stability for this study?
+Explain time-sequenced power flows.
+Explain assumptions and simplifications.
+
+\section{Simulation Validation}
+Should a more noise based example be used?
+
+\section{Simulation and Results}
+
+\section{Conclusion}

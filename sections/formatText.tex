@@ -1,0 +1,24 @@
+\section{Testing of Format}
+% This section meant to see if the template actually does the things
+
+Figures will behave as Fig. \ref{fig: test}. Note that the placement may seem random, but is chosen by \LaTeX\ automatically.
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\linewidth]{figures/dbAction3}
+\caption{Testing of figure format.}
+\label{fig: test}
+\end{figure}
+
+
+The default table example leaves something to be desired that is fulfilled by using the \verb|booktabs| package.
+This is shown in Table \ref{tab: test2}.
+\input{tables/IEEEtableTest}
+
+References are only included if cited. For instance \cite{Kundur} or \cite{DonnellyVoltageControl} are randomly cited. Note that the sorting order is set to \verb|none|, which lists references in order cited.
+
+Equations are entered as one may normally do in a \LaTeX\ situation and referenced as (\ref{eq: ACE}).
+\begin{align}
+\text{ACE}_{\text{tie line}} &= P_{gen} - P_{load} - P_{\text{sched interchange}}\\ \label{eq: TLace}
+\text{ACE}_{\text{frequency bias}} &= 10B(f_{\text{actual}}-f_{\text{sched}})f_{base}\\
+\text{ACE} &= \text{ACE}_{\text{tie line}} -\text{ACE}_{\text{frequency bias}} \label{eq: ACE}
+\end{align}

@@ -1,10 +1,18 @@
 \section{Introduction}
-% no \IEEEPARstart
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-Should cover:
-the reason for using deadbands, 
-Kou example of how simulating deadbands is important but typically ignored,
+Deadbands are commonly implemented in turbine speed governors to prevent a machine from responding to small frequency deviations that are ever present in electrical systems.
+Industry usage of deadbands is widely known, however, it is often overlooked in power system simulation.
+XXXrefKou2016 details how incorporating governor deadbands into transient simulation models can lead to results that better match measured power system events.
+
+
+
+Additional intro thoughts:
+
 deadband considered in transient stability time frame, not long-term,
+
 possible real life benefits of improved deadbands
-there doesn't seem to be a valve movement metric, instead some `power hours' calculation is used.
+
+there doesn't seem to be a valve movement focused sim option... 
+
+Transient stability software is not meant to run for extended periods of time.
+
+The resolution of data is orders of magnitude greater than is desired (ms v s).

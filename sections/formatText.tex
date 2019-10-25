@@ -1,8 +1,8 @@
-\section{Testing of Format}
-% This section meant to see if the template actually does the things
+\section{Non-Text Format Templates}
+This section meant to provide template figures, tables, equations, and references that can be copied and pasted to other parts of the document in a simple manner.
 
 Figures will behave as Fig. \ref{fig: test}. Note that the placement may seem random, but is chosen by \LaTeX\ automatically.
-\begin{figure}[!t]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=\linewidth]{figures/dbAction3}
 \caption{Testing of figure format.}
@@ -10,15 +10,14 @@ Figures will behave as Fig. \ref{fig: test}. Note that the placement may seem ra
 \end{figure}
 
 
-The default table example leaves something to be desired that is fulfilled by using the \verb|booktabs| package.
+The default IEEE table example leaves something to be desired that is fulfilled by using the \verb|booktabs| package.
 This is shown in Table \ref{tab: test2}.
 \input{tables/IEEEtableTest}
 
-References are only included if cited. For instance \cite{Kundur} or \cite{DonnellyVoltageControl} are randomly cited. Note that the sorting order is set to \verb|none|, which lists references in order cited.
-
-Equations are entered as one may normally do in a \LaTeX\ situation and referenced as (\ref{eq: ACE}).
+Equations are entered as one may normally do in a \LaTeX\ situation and referenced as (\ref{eq: TestEq1}) and (\ref{eq: TestEq2}).
 \begin{align}
-\text{ACE}_{\text{tie line}} &= P_{gen} - P_{load} - P_{\text{sched interchange}}\\ \label{eq: TLace}
-\text{ACE}_{\text{frequency bias}} &= 10B(f_{\text{actual}}-f_{\text{sched}})f_{base}\\
-\text{ACE} &= \text{ACE}_{\text{tie line}} -\text{ACE}_{\text{frequency bias}} \label{eq: ACE}
+f_{ss} &= f_{ref}+\Delta f = f_{ref} + \dfrac{\Delta P}{S_{Base}\beta}  \label{eq: TestEq1}\\
+\beta &= \sum_{i=1}^{N} \dfrac{1}{R_i \frac{S_{Base}}{M_{Base, i}} } \label{eq: TestEq2}
 \end{align}
+
+References are only included if cited. For instance \cite{Kundur} or \cite{DonnellyVoltageControl} are randomly cited. Note that the sorting order is set to \verb|none|, which lists references in order cited.

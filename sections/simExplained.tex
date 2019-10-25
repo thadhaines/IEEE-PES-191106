@@ -1,4 +1,50 @@
 \section{Explanation of Simulation Technique}
-Why not use transient stability for this study?
-Explain time-sequenced power flows.
-Explain assumptions and simplifications.
+Time-sequenced power flow (TSPF) is a method for long-term dynamic (LTD) simulation proven to generate useful results \cite{DonnellyVoltageControl}.
+The basic idea behind TSPF is to solve a power flow, perform system dynamics of interest, `re-seed' the power flow with new values, and repeat.
+%While this task is monotonous for humans, it is well suited for computers.
+A python based simulation software, Power System Long-Term Dynamic Simulator (PSLTDSim), has been developed to perform LTD simulations using TSPF.
+PSLTDSim has the ability to calculate system frequency, perform governor dynamics, model automatic generation control (AGC), and insert step, ramp, and noise perturbances into a power system.
+
+%-------------------------------------------------------------------------------------
+\subsection{Simulation Assumptions and Simplifications}
+Due to the relatively large time steps of 1 second involved with TSPF, numerous assumptions were made.
+Ideal exciters are assumed as modern exicters are typically fast enough to maintain reference voltage under stable conditions.
+Intermachine oscillations are ignored since subsynchronous resonances are sub-second and the time resolution used is not fine enough to capture these phenomena.
+
+Simplifications of transient stability models are used in PSLTDSim.
+The only details required to model a generator are MW cap, MVA base, and machine inertia.
+Additionally, a deadband modified tgov1 governor model, Fig. \ref{fig: tgov1BlockDiagram},  was created to model system governors.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\linewidth]{figures/tgov1DB}
+	\caption{Block diagram of modified tgvo1 model.}
+	\label{fig: tgov1BlockDiagram}
+\end{figure}
+
+%-------------------------------------------------------------------------------------
+\subsection{Combined System Frequency}
+Instead of frequency being calculated for each bus, a single combined swing equation is used to model only one combined system frequency.
+As shown in the per-unit (PU) equation (\ref{eq: CombinedSwingEq}), accelerating power from the entire system, as well as total system inertia $H_{PU, sys}$, is used to calculate $\dot{\omega}_{sys}$.
+
+\begin{align}
+\dot{\omega}_{sys} = \dfrac{1}{2H_{PU, sys} } \left( \dfrac{P_{acc PU, sys} }{\omega_{sys}} - D_{sys}\Delta\omega_{sys}  \right) \label{eq: CombinedSwingEq}
+\end{align} 
+
+%-------------------------------------------------------------------------------------
+\subsection{Distribution of Accelerating Power}
+In a system with $N$ generators, total system accelerating power is calculated by
+\begin{align}
+P_{acc, sys} = \sum_{i=1}^{N} P_{m,i}  - \sum_{i=1}^{N} P_{e,i} \label{eq:Pacc} 
+\end{align}
+\noindent where $P_{m,i}$ is mechanical power and $P_{e,i}$ is electrical power of generator $i$.
+
+The system accelerating power is then distributed to all generators in the system according to machine inertia as
+\begin{align}
+P_{e, i} = P_{e, i}  - P_{acc, sys}\left( \dfrac{H_i}{H_{sys}}\right) \label{eq:distPacc}
+\end{align}
+where $H$ is not PU and has units of $MW\cdot s$.
+
+Once all accelerating power is distributed, the new value for each generators power output is used as initial conditions to solve a power flow. 
+If the resulting power supplied by the slack generator is larger than the set slack tolerance, the difference is redistributed according to (\ref{eq:distPacc}) until slack tolerance is met, or a maximum number of iterations take place.
+

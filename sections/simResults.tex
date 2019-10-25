@@ -1,2 +1,23 @@
-\section{Simulation and Results}
+\section{Case Study}
+Explanation of simulations to do...
+
+30 minutes of noise with various deadbands and resulting valve travel.
+Cases of intterest:
+No deadband, step deadband, no-step deadband, nl-droop deadband.
+
+Universal acceptance sim:
+At least 1 area with a step deadband, others with linear or no deadband.
+Should show unequal distribution of valve travel.
+
+\subsection{System Modifications}
+The system was modified to include three areas for AGC simulation.
+PSLTDSim was used to set all area governor deadbands to 5\%.
+Governors were removed from some units so that only $\approx$ 20\% of generation capacity in each area has governor control.
+A generic AGC routine that filters area control error (ACE) through a proportional-intergal (PI)  controller was added to each area.
+AGC messages are sent select generation units with governors every 15 seconds.
+
+\subsection{Simulation Results}
+To verify desirable AGC control operation, a simple 1500 MW generation loss event was simulated.
+
+
 Noise tests, valve travel movement, table inputs, etc.

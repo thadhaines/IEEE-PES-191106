@@ -93,7 +93,9 @@
 
 % bibiliography
 \usepackage[backend=biber,style=ieee, % bibliography style may be changed
-sorting=none % sorting=nyt % sorts by author, year, title
+sorting=none, % sorting=nyt % sorts by author, year, title
+autocite=inline, sortcites=true, labelnumber=true, % for compressed cites
+dashed=false, % show repeated authors (i.e. don't blank out names)
 ]{biblatex}
 % Note that full references are used.
 \addbibresource{../Thesis/template/biliography.bib}
@@ -311,6 +313,7 @@ sorting=none % sorting=nyt % sorts by author, year, title
 % systems. The latest version and documentation can be obtained at:
 % http://www.ctan.org/pkg/url
 % Basically, \url{my_url_here}.
+\usepackage[hidelinks]{hyperref}
 
 
 
@@ -391,15 +394,12 @@ Butte, Montana 59701%
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-The abstract goes here.
+\input{section/abstract}
 \end{abstract}
 
 % no keywords
 \begin{IEEEkeywords}
-Governor deadbands, 
-long-term dynamic simulation, 
-time-sequenced power flow,
-valve travel
+\input{section/keywords}
 \end{IEEEkeywords}
 
 % For peer review papers, you can put extra information on the cover
@@ -412,7 +412,6 @@ valve travel
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-
 % Altered to use inputs
 \input{sections/intro}
 \input{sections/simExplained}
@@ -420,6 +419,7 @@ valve travel
 \input{sections/simValidation}
 \input{sections/simResults}
 \input{sections/conclusion}
+
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
 % For figures, \caption should occur after the \includegraphics.
@@ -520,12 +520,7 @@ valve travel
 
 % use section* for acknowledgment
 \section*{Acknowledgment}
-
-
-The authors would like to thank...
-
-
-
+\input{section/acknowledgements}
 
 
 % trigger a \newpage just before the given reference
@@ -562,7 +557,8 @@ The authors would like to thank...
 %\end{thebibliography}
 
 
-% template forms
+% template forms - To be removed before final version
+\pagebreak
 \input{sections/formatText}
 
 % that's all folks

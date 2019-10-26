@@ -1,18 +1,15 @@
 \section{Introduction}
 Deadbands are commonly implemented in turbine speed governors to prevent a machine from responding to small frequency deviations that are ever present in electrical systems.
 Industry usage of deadbands is widely known, however, it is often overlooked in power system simulation.
-XXXrefKou2016 details how incorporating governor deadbands into transient simulation models can lead to results that better match measured power system events.
+\cite{kou2016} details how incorporating governor deadbands into transient simulation models can lead to results that better match measured power system events.
 
 
+mish mash intro thoughts:
+\begin{itemize}
+	\item deadband simulation considered in transient stability time frame, not long-term
+	\item \cite{nercFRI2012} reports frequency profile improvement caused by no step deadband. Also uses MW-min calculation to state smaller no step deadbands reduce movement, calls for immediate dev of gov guidelines - led to standard TRE BAL-001 for ERCOT - in full effect april 2015. Most Recent Report \cite{nercFRAA2018} has odd ERCOT frequency probability - more U shaped, less normal.
+	\item transient simulation not meant for long term simulation
+	\item long term dynamic simulation software focusing on governor dynamics doesn't exist
+\end{itemize}
 
-Additional intro thoughts:
 
-deadband considered in transient stability time frame, not long-term,
-
-possible real life benefits of improved deadbands
-
-there doesn't seem to be a valve movement focused sim option... 
-
-Transient stability software is not meant to run for extended periods of time.
-
-The resolution of data is orders of magnitude greater than is desired (ms v s).

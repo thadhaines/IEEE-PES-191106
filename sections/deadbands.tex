@@ -1,11 +1,16 @@
 \section{Implementation of Deadbands}
-NERC suggestions for droop and deadband
+In the western interconnect, NERC suggestions for droop and deadband are typically 5\% and 36 mHz respectively.
+However, practical implementation is left to generator operators.
 
 \subsection{Types of Deadbands}
-intentional vs unintentional
-None, step, no-step, non-linear droop.
-and equations for calculating
-
-\subsection{ERCOT Experience}
-Improved freq deviation (elimination of `flat top' effect) 2012 
-creation of TRE-BAL-001...
+Fig. \ref{fig: deadbandType} presents governor response to no deadband and three different implementations of deadbands that follow NERC suggestions.
+If a governor has no deadband, a change in output power is requested for any frequency deviation.
+A step deadband ignores any frequency smaller than the setpoint $\pm db1$ and then steps to meet the 5\% droop curve.
+A no step deadband pushes the original droop curve away from the nominal frequency allowing for the droop curve to cross zero at $\pm db1$.
+A non-linear deadband linearly increases from $\pm \alpha$ to $\pm \beta$, after which it follows the original droop curve.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\linewidth]{figures/dbAction3}
+	\caption{Different types of deadbands.}
+	\label{fig: deadbandType}
+\end{figure}

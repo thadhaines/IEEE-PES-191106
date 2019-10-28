@@ -9,7 +9,7 @@ PSLTDSim has the ability to calculate system frequency, perform governor dynamic
 \subsection{Simulation Assumptions and Simplifications}
 Due to the relatively large time steps of 1 second involved with TSPF, numerous assumptions were made.
 Ideal exciters are assumed as modern exicters are typically fast enough to maintain reference voltage under stable conditions.
-Intermachine oscillations are ignored since subsynchronous resonances are sub-second and the time resolution used is not fine enough to capture these phenomena.
+Intermachine oscillations are ignored since the time resolution used is not fine enough to capture these phenomena.
 
 Simplifications of transient stability models are used in PSLTDSim.
 The only parameters required to model a generator are MW cap, MVA base, and machine inertia.
@@ -18,7 +18,7 @@ Additionally, a deadband modified tgov1 governor model, Fig. \ref{fig: tgov1Bloc
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\linewidth]{figures/tgov1DB}
-	\caption{Block diagram of modified tgvo1 model.}
+	\caption{Block diagram of modified tgov1 model.}
 	\label{fig: tgov1BlockDiagram}
 \end{figure}
 

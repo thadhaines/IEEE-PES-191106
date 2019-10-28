@@ -3,7 +3,7 @@ To validate the chosen simulation approach, identical system perturbances were p
 %The output data was then compared in MATLAB.
 Frequency is compared to validate the single system frequency assumption calculated by PSLTDSim, and governed generator mechanical power is compared to validate governor action.
 
-To simplify the comparison of frequency data from PSDS to LTD, a single weighted frequency based on generator inertia was calcualted using (\ref{eq: f_weighted}).
+To simplify the comparison of frequency data from PSDS to LTD, a single weighted frequency based on generator inertia was calcualted using (\ref{eq: f_weighted}) and (\ref{eq: Hsys}).
 \begin{align}
 f_{w} &= \sum_{i=1}^{N} f_i \dfrac{H_{PU, i} M_{base, i} }{H_{sys}}  \label{eq: f_weighted}\\
 \text{where } H_{sys} &= \sum_{i=1}^{N} H_{PU, i} M_{base, i}  \label{eq: Hsys}
@@ -21,7 +21,7 @@ Further details about the creation and use of the miniWECC may be found in \cite
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.65\linewidth]{figures/miniWECC_split03}
-	\caption{MiniWECC System.}
+	\caption{MiniWECC System adapted from \cite{RJminiWECC}.}
 	\label{fig: miniWECC}
 \end{figure}
 
@@ -49,7 +49,7 @@ When comparing mechanical power output in Fig. \ref{fig: stepPmdif}, large MW di
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\linewidth]{figures/miniWECC3ALTDstepPm2}
-	\caption{Comparison of mechanical power output during load step.}
+	\caption{Difference of mechanical power output during load step.}
 	\label{fig: stepPmdif}
 \end{figure}
 
@@ -83,7 +83,7 @@ Simulation results from a 40 second 400 MW load ramp, in Fig. \ref{fig: rampFcom
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\linewidth]{figures/miniWECC3ALTDrampPm2}
-	\caption{Comparison of mechanical power output during load ramp.}
+	\caption{Difference of mechanical power output during load ramp.}
 	\label{fig: rampPmdif}
 \end{figure}
 

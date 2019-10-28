@@ -1,11 +1,11 @@
 \section{Implementation of Deadbands}
-In the western interconnect, NERC suggestions for droop and deadband are typically 5\% and 36 mHz respectively.
+FERC minimum requirements for droop and deadband are 5\% and 36 mHz respectively\cite{ferc2018}.
 However, practical implementation is left to generator operators.
 
 \subsection{Types of Deadbands}
-Fig. \ref{fig: deadbandType} presents governor response to no deadband and three different implementations of deadbands that follow NERC suggestions.
+Fig. \ref{fig: deadbandType} presents implementations of deadbands that follow FERC requirements.
 If a governor has no deadband, a change in output power is requested for any frequency deviation.
-A step deadband ignores any frequency smaller than the setpoint $\pm db1$ and then steps to meet the 5\% droop curve.
+A step deadband ignores any frequency smaller than the setpoint $\pm db1$ and then steps to meet the set droop curve.
 A no step deadband pushes the original droop curve away from the nominal frequency allowing for the droop curve to cross zero at $\pm db1$.
 A non-linear deadband linearly increases from $\pm \alpha$ to $\pm \beta$, after which it follows the original droop curve.
 \begin{figure}[!ht]

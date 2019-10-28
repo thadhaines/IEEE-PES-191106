@@ -14,7 +14,7 @@ The miniWECC system was modified to include three areas for AGC simulation.
 PSLTDSim was used to set all area governor deadbands to 5\%.
 Governors were removed from some units so that only $\approx$20\% of generation capacity in each area has governor control.
 A generic AGC routine that filters area control error (ACE) through a proportional-intergal (PI)  controller was added to each area.
-AGC messages are sent select generation units with governors every 15 seconds.
+AGC messages are sent select generation units with governors representing $\approx$9\% of total generation capacity every 15 seconds.
 
 \subsection{Simulation Results}
 To verify desirable AGC control operation, a simple 1500 MW generation loss event was simulated...

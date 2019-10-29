@@ -11,6 +11,8 @@ f_{w} &= \sum_{i=1}^{N} f_i \dfrac{H_{PU, i} M_{base, i} }{H_{sys}}  \label{eq: 
 Due to the different time steps, when calculating the difference between PSDS and LTD, multiple PSDS values have the same held LTD value subtracted from them. 
 For instance, any PSDS($t = 3.x$) would have the LTD($t = 3$) value subtracted from it for comparison.
 
+% Something about an individual difference not mattering as much as the general difference, therfore all ltd psds comparisons are plotted as a single color.
+
 %-------------------------------------------------------------------------------------
 \subsection{The MiniWECC System}
 
@@ -93,3 +95,7 @@ Simulation results from a 40 second 400 MW load ramp, in Fig. \ref{fig: rampFcom
 	\caption{Percent difference of mechanical power output during load ramp.}
 	\label{fig: rampPmPercentdif}
 \end{figure}
+%-------------------------------------------------------------------------------------
+\subsection{Validation Summary}
+The step tests show the software is not meant to simulate large transient events with great accuracy.
+However, small perturbances are modeled with less deviation from transient simulation methods.

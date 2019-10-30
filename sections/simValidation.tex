@@ -9,7 +9,7 @@ f_{w} &= \sum_{i=1}^{N} f_i \dfrac{H_{PU, i} M_{base, i} }{H_{sys}}  \label{eq: 
 \text{where } H_{sys} &= \sum_{i=1}^{N} H_{PU, i} M_{base, i}  \label{eq: Hsys}
 \end{align}% This explanation may be unnecessary for IEEE...
 Due to the different time steps, when calculating the difference between PSDS and LTD, multiple PSDS values have the same held LTD value subtracted from them. 
-For instance, any PSDS($t = 3.x$) would have the LTD($t = 3$) value subtracted from it for comparison.
+For instance, any PSDS($t = 3.x$) value would have the LTD($t = 3$) value subtracted from it for comparison.
 
 % Something about an individual difference not mattering as much as the general difference, therfore all ltd psds comparisons are plotted as a single color.
 
@@ -30,7 +30,7 @@ Further details about the creation and use of the miniWECC may be found in \cite
 %`````````````````````````````````````````````````````````````````````````````````````
 \subsubsection{Load Step Results}
 A 400 MW load step was simulated to occur at 2 seconds.
-As shown in Fig. \ref{fig: stepFcomp}, all individual PSDS frequencies begin to oscillate after the perturbance while the weighted PSDS frequency appears to follow the general center of oscillation. The LTD system frequency is less oscillatory than the weighted frequency with only minor differences between the two. Fig. \ref{fig: rampFdif} quantifies these differences.
+As shown in Fig. \ref{fig: stepFcomp}, all individual PSDS frequencies begin to oscillate after the perturbance while the weighted PSDS frequency appears to follow the general center of oscillation. The LTD system frequency is less oscillatory than the weighted frequency with only minor differences between the two. Fig. \ref{fig: rampFdif} quantifies these frequency differences.
 
 \begin{figure}[!t]
 	\centering
@@ -65,8 +65,8 @@ When comparing mechanical power output in Fig. \ref{fig: stepPmdif}, large MW di
 
 %`````````````````````````````````````````````````````````````````````````````````````
 \subsubsection{Load Ramp Results}
-Simulation results from a 40 second 400 MW load ramp in Figs. \ref{fig: rampFcomp, fig:rampFdif} show frequency of LTD being within 1.2 mHz of PSDS.
-Fig.\ref{fig: rampPmdif} shows mechanical power differences of less than $\pm$10 MW or 1\% difference max Fig.\ref{fig: rampPmPercentdif}.
+Simulation results from a 40 second 400 MW load ramp in Figs. \ref{fig: rampFcomp}-\ref{fig: rampFdif} show frequency of LTD being within 1.2 mHz of PSDS.
+Fig.\ref{fig: rampPmdif} shows mechanical power differences of less than $\pm$10 MW or, as Fig. \ref{fig: rampPmPercentdif} shows, 1\% difference max.
 %*** Ramp results are included for now, but may be take up too much space... They do function as a `better' validation...
 
 \begin{figure}[!ht]
@@ -99,4 +99,4 @@ Fig.\ref{fig: rampPmdif} shows mechanical power differences of less than $\pm$10
 %-------------------------------------------------------------------------------------
 \subsection{Validation Summary}
 The step test results show that PSLTDSim is not meant to simulate large transient events with great accuracy.
-However, repeated small perturbances are modeled with less deviation from transient simulation methods.
+However, repeated small perturbances are modeled with acceptable deviation from transient simulation methods.

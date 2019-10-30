@@ -1,7 +1,7 @@
 \section{Simulation Validation}
-To validate the chosen simulation approach, identical system perturbances were performed in the GE Energy Positive Sequence Load Flow (PSLF) Dynamic Subsystem (PSDS) and PSLTDSim.
+To validate the chosen simulation approach, identical system perturbances were performed in the PSLF Dynamic Subsystem (PSDS) and PSLTDSim.
 %The output data was then compared in MATLAB.
-Frequency is compared to validate the single system frequency assumption calculated by PSLTDSim, and governed generator mechanical power is compared to validate governor action.
+Frequency was compared to validate the single system frequency assumption calculated by PSLTDSim, and governed generator mechanical power was compared to validate governor action.
 
 To simplify the comparison of frequency data from PSDS to LTD, a single weighted frequency based on generator inertia was calcualted using (\ref{eq: f_weighted}) and (\ref{eq: Hsys}).
 \begin{align}
@@ -17,13 +17,13 @@ For instance, any PSDS($t = 3.x$) would have the LTD($t = 3$) value subtracted f
 \subsection{The MiniWECC System}
 
 The power system used for validation and valve travel experiments, the miniWECC shown in Fig. \ref{fig: miniWECC}, is a 120 bus 34 generator system created in PSLF.
-All governors in the miniWECC are modeled with the tgov1 which enabled easier validation.
+All 21 governors in the miniWECC are modeled with the tgov1 which enabled easier validation.
 Further details about the creation and use of the miniWECC may be found in \cite{trudnowski2012, sandia2015, RJminiWECC}.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.65\linewidth]{figures/miniWECC_split03}
-	\caption{MiniWECC System adapted from \cite{RJminiWECC}.}
+	\caption{MiniWECC system adapted from \cite{RJminiWECC}.}
 	\label{fig: miniWECC}
 \end{figure}
 
@@ -65,7 +65,8 @@ When comparing mechanical power output in Fig. \ref{fig: stepPmdif}, large MW di
 
 %`````````````````````````````````````````````````````````````````````````````````````
 \subsubsection{Load Ramp Results}
-Simulation results from a 40 second 400 MW load ramp, in Fig. \ref{fig: rampFcomp}-\ref{fig: rampPmdif} show frequency of LTD being within 1.2 mHz of PSDS and mechanical power differences of less than $\pm$10 MW or 1\% difference max (0.2\% average).
+Simulation results from a 40 second 400 MW load ramp in Figs. \ref{fig: rampFcomp, fig:rampFdif} show frequency of LTD being within 1.2 mHz of PSDS.
+Fig.\ref{fig: rampPmdif} shows mechanical power differences of less than $\pm$10 MW or 1\% difference max Fig.\ref{fig: rampPmPercentdif}.
 %*** Ramp results are included for now, but may be take up too much space... They do function as a `better' validation...
 
 \begin{figure}[!ht]
@@ -97,5 +98,5 @@ Simulation results from a 40 second 400 MW load ramp, in Fig. \ref{fig: rampFcom
 \end{figure}
 %-------------------------------------------------------------------------------------
 \subsection{Validation Summary}
-The step tests show the software is not meant to simulate large transient events with great accuracy.
-However, small perturbances are modeled with less deviation from transient simulation methods.
+The step test results show that PSLTDSim is not meant to simulate large transient events with great accuracy.
+However, repeated small perturbances are modeled with less deviation from transient simulation methods.

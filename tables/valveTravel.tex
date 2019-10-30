@@ -1,0 +1,24 @@
+% Testing of external table build for \input later
+% Uses the IEEE table format guidelines
+\begin{table}[!ht]
+	\caption{Total valve travel for various deadband types.}
+	\label{tab: valveTravel}
+	\centering
+	\begin{tabular}{@{} C{2cm} S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] @{}} 	
+							\toprule							
+		&	\multicolumn{4}{c}{Valve Travel [PU]}							\\	
+	\text{Generator}	&	\text{No DB}	&	\text{Step}	&	\text{No-Step}	&	\text{N-L Droop}	\\	\midrule
+	17	&	0.16	&	7.48	&	0.15	&	0.23	\\	
+	23	&	0.16	&	7.48	&	0.15	&	0.23	\\	
+	30	&	0.16	&	7.48	&	0.15	&	0.23	\\	
+	32	&	0.16	&	7.54	&	0.15	&	0.23	\\	
+	107	&	0.16	&	7.54	&	0.15	&	0.23	\\	
+	41	&	0.15	&	6.44	&	0.14	&	0.23	\\	
+	45	&	0.15	&	6.44	&	0.14	&	0.23	\\	
+	53	&	0.16	&	7.54	&	0.15	&	0.23	\\	
+	59	&	0.15	&	6.44	&	0.14	&	0.23	\\	\bottomrule
+	Total:	&	1.41	&	64.38	&	1.32	&	2.07	\\	
+
+	\end{tabular}
+
+\end{table}

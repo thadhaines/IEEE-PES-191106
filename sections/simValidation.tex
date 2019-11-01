@@ -3,10 +3,11 @@ To validate the chosen simulation approach, identical system perturbances were p
 %The output data was then compared in MATLAB.
 Frequency was compared to validate the single system frequency assumption calculated by PSLTDSim, and governed generator mechanical power was compared to validate governor action.
 
-To simplify the comparison of frequency data from PSDS to LTD, a single weighted frequency based on generator inertia was calcualted using (\ref{eq: f_weighted}) and (\ref{eq: Hsys}).
+Comparison of frequency data from PSDS to LTD was simplified by calculating a single weighted PSDS frequency $f_w$ based on generator inertia. 
+In a system with $N$ generators
 \begin{align}
 f_{w} &= \sum_{i=1}^{N} f_i \dfrac{H_{PU, i} M_{base, i} }{H_{sys}}  \label{eq: f_weighted}\\
-\text{where } H_{sys} &= \sum_{i=1}^{N} H_{PU, i} M_{base, i}  \label{eq: Hsys}
+\text{where } H_{sys} &= \sum_{i=1}^{N} H_{PU, i} M_{base, i}.  \label{eq: Hsys}
 \end{align}% This explanation may be unnecessary for IEEE...
 Due to the different time steps, when calculating the difference between PSDS and LTD, multiple PSDS values have the same held LTD value subtracted from them. 
 For instance, any PSDS($t = 3.x$) value would have the LTD($t = 3$) value subtracted from it for comparison.
@@ -65,7 +66,7 @@ When comparing mechanical power in Fig. \ref{fig: stepPmdif}, large MW differenc
 
 %`````````````````````````````````````````````````````````````````````````````````````
 \subsubsection{Load Ramp Results}
-Simulation results from a 40 second 400 MW load ramp in Figs. \ref{fig: rampFcomp}-\ref{fig: rampFdif} show frequency of LTD being within 1.2 mHz of PSDS.
+Simulation results from a 40 second 400 MW load ramp in Figs. \ref{fig: rampFcomp}-\ref{fig: rampFdif} show frequency of LTD being within 1.5 mHz of PSDS.
 Fig.\ref{fig: rampPmdif} shows mechanical power differences of less than $\pm$10 MW or, as Fig. \ref{fig: rampPmPercentdif} shows, 1\% difference max.
 %*** Ramp results are included for now, but may be take up too much space... They do function as a `better' validation...
 

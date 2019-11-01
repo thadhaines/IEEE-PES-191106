@@ -8,9 +8,10 @@ In a system with $N$ generators
 \begin{align}
 f_{w} &= \sum_{i=1}^{N} f_i \dfrac{H_{PU, i} M_{base, i} }{H_{sys}}  \label{eq: f_weighted}\\
 \text{where } H_{sys} &= \sum_{i=1}^{N} H_{PU, i} M_{base, i}.  \label{eq: Hsys}
-\end{align}% This explanation may be unnecessary for IEEE...
-Due to the different time steps, when calculating the difference between PSDS and LTD, multiple PSDS values have the same held LTD value subtracted from them. 
-For instance, any PSDS($t = 3.x$) value would have the LTD($t = 3$) value subtracted from it for comparison.
+\end{align}
+% This explanation may be unnecessary for IEEE... removed for space
+%Due to the different time steps, when calculating the difference between PSDS and LTD, multiple PSDS values have the same held LTD value subtracted from them. 
+%For instance, any PSDS($t = 3.x$) value would have the LTD($t = 3$) value subtracted from it for comparison.
 
 % Something about an individual difference not mattering as much as the general difference, therfore all ltd psds comparisons are plotted as a single color.
 

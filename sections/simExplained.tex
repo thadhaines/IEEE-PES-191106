@@ -7,9 +7,9 @@ PSLTDSim has the ability to calculate system frequency, perform governor dynamic
 
 %-------------------------------------------------------------------------------------
 \subsection{Simulation Assumptions and Simplifications}
-Due to the relatively large time steps of 1 second used with TSPF, numerous assumptions were made.
-Ideal exciters are assumed as modern exicters are typically fast enough to maintain reference voltage under stable conditions.
-Intermachine oscillations are ignored since the time resolution used is not fine enough to capture these phenomena.
+Due to the relatively large time steps of 1 second used with TSPF, numerous assumptions can be made.
+Ideal exciters were assumed as modern exicters are typically fast enough to maintain reference voltage under stable conditions.
+Intermachine oscillations were ignored since the time resolution used is not fine enough to capture these phenomena.
 
 Simplifications of transient stability models are used in PSLTDSim.
 The only parameters required to model a generator are MW cap, MVA base, and machine inertia.
@@ -47,5 +47,5 @@ where $H$ has units of $MW\cdot s$.
 
 The new value for $P_{e, i}$ is used in the next power flow solution for each generator.
 %Once all accelerating power is distributed, the new value for each generators power output is used as initial conditions to solve a power flow. 
-If the difference between expected and resulting power supplied by the slack generator is larger than a set slack tolerance, the difference is redistributed according to (\ref{eq:distPacc}) until the resulting difference is below the slack tolerance, or a maximum number of iterations take place \cite{Stajcar}.
+If the difference between expected and resulting power supplied by the slack generator is larger than a set slack tolerance, the difference is redistributed according to (\ref{eq:distPacc}) until the resulting difference is below the slack tolerance, or a maximum number of iterations take place\cite{Stajcar}.
 % should probably cite stajcar

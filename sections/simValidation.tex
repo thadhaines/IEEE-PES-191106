@@ -1,7 +1,7 @@
 \section{Simulation Validation}
-To validate the chosen simulation approach, identical system perturbances were performed in the PSLF Dynamic Subsystem (PSDS) and PSLTDSim.
+To validate the chosen simulation approach, identical system perterbations were simulated in both the PSLF Dynamic Subsystem (PSDS), a classical transient stability simulation environment, and PSLTDSim.
 %The output data was then compared in MATLAB.
-Frequency was compared to validate the single system frequency assumption calculated by PSLTDSim, and governed generator mechanical power was compared to validate governor action.
+Frequency comparisons were used to validate the single system frequency assumption calculated by PSLTDSim. Comparisons of the mechanical power of governed generators were used to validate governor action.
 
 Comparison of frequency data from PSDS to LTD was simplified by calculating a single weighted PSDS frequency $f_w$ based on generator inertia. 
 In a system with $N$ generators
@@ -18,8 +18,8 @@ f_{w} &= \sum_{i=1}^{N} f_i \dfrac{H_{PU, i} M_{base, i} }{H_{sys}}  \label{eq: 
 %-------------------------------------------------------------------------------------
 \subsection{The MiniWECC System}
 
-The power system used for validation and valve travel experiments, the miniWECC shown in Fig. \ref{fig: miniWECC}, is a 120 bus 34 generator system created in PSLF.
-All 21 governors in the miniWECC are modeled with the tgov1 which enabled easier validation.
+The power system used for validation and valve travel experiments, the `miniWECC' shown in Fig. \ref{fig: miniWECC}, is a 120 bus 34 generator system created in PSLF.
+The governored machines in the miniWECC were modeled with the tgov1 governor, which enabled easier validation.
 Further details about the creation and use of the miniWECC may be found in \cite{trudnowski2012, sandia2015, RJminiWECC}.
 
 \begin{figure}[!ht]
@@ -31,7 +31,7 @@ Further details about the creation and use of the miniWECC may be found in \cite
 
 %`````````````````````````````````````````````````````````````````````````````````````
 \subsubsection{Load Step Results}
-A 400 MW load step was simulated to occur at 2 seconds.
+A 400 MW load step at $t$ = 2 seconds was used for validating the performance of the PSLTDSim.
 As shown in Fig. \ref{fig: stepFcomp}, all individual PSDS frequencies begin to oscillate after the perturbance while the weighted PSDS frequency appears to follow the general center of oscillation. The LTD system frequency is less oscillatory than the weighted frequency with only minor differences between the two. Fig. \ref{fig: rampFdif} quantifies these frequency differences.
 
 \begin{figure}[!t]
@@ -67,7 +67,7 @@ When comparing mechanical power in Fig. \ref{fig: stepPmdif}, large MW differenc
 
 %`````````````````````````````````````````````````````````````````````````````````````
 \subsubsection{Load Ramp Results}
-Simulation results from a 40 second 400 MW load ramp in Figs. \ref{fig: rampFcomp}-\ref{fig: rampFdif} show frequency of LTD being within 1.5 mHz of PSDS.
+A second set of validation results, using a 40 second 400 MW load ramp, were also generated. Figs. \ref{fig: rampFcomp}-\ref{fig: rampFdif} show frequency of LTD being within 1.5 mHz of PSDS.
 Fig. \ref{fig: rampPmdif} shows mechanical power differences of less than $\pm$10 MW or, as Fig. \ref{fig: rampPmPercentdif} shows, 1\% difference max.
 %*** Ramp results are included for now, but may be take up too much space... They do function as a `better' validation...
 
@@ -100,5 +100,4 @@ Fig. \ref{fig: rampPmdif} shows mechanical power differences of less than $\pm$1
 \end{figure}
 %-------------------------------------------------------------------------------------
 \subsection{Validation Summary}
-The step test results show that PSLTDSim is not meant to simulate large transient events with great accuracy.
-However, repeated small perturbances are modeled with acceptable deviation from transient simulation methods.
+The validation results show that PSLTDSim accurately captures long term power system dyanmics. The step test results show that PSLTDSim cannot replace classical transient stability simultion for the study of large, short-duration transient events, however repeated small perturbances are modeled with acceptable deviation from transient simulation methods.

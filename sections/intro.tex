@@ -1,42 +1,39 @@
 \section{Introduction}
-%Deadbands are commonly implemented in turbine speed governors to prevent a machine from responding to small frequency deviations that are ever present in electrical systems.
-Industry usage of deadbands is widely known, however, it is often overlooked in power system simulation.
+Governor deadbands are commonly implemented in turbine speed governors to prevent a machine from responding to small frequency deviations that are ever present in electrical systems. The use of governor deadbands is widely understood, however often overlooked in power system simulation.
 Incorporating governor deadbands into transient simulation models has been shown to generate results that better match measured power system events\cite{kou2016}.
-Additionally, numerous long-term operational benefits have been attributed to the alteration of deadband behavior\cite{nercFRI2012}.
-To better understand how deadbands may affect system behavior, a long-term simulation would seem suitable.
-Long-term dynamic (LTD) simulation software focusing on governor dynamics was proposed in \cite{AGCCresap} and others, but has not been standardized nor fully developed.
-
+%Additionally, numerous long-term operational benefits have been attributed to the alteration of deadband behavior\cite{nercFRI2012}.
 
 % Matt Intro:
 
-Recently, the North American Electric Reliability Corporation (NERC) undertook an initiative to study the degradation of primary frequency response in the eastern interconnection. 
-The initiative culminated in NERC Industry Advisory A-2015-02-05-01\cite{NERCxxxx} recommending a maximum deadband setting of $\pm$36 mHz for generators intended to supply primary frequency response. 
+Recently, the North American Electric Reliability Corporation (NERC) undertook an initiative to study the degradation of primary frequency response in the eastern interconnection\cite{nercFRI2012}. 
+The initiative culminated in an Industry Advisory bulletin recommending a maximum deadband setting of $\pm$36 mHz for generators intended to supply primary frequency response. 
 The recommendation was later adopted by the Federal Energy Regulatory Commission (FERC) in FERC Order 842, which mandates that utility pro forma Interconnection Agreements include the deadband limitation\cite{FERCxxxx}.
-
 The NERC advisory, and the body of work leading to the advisory, also document a lack of accurate modeling related to governor deadbands, and commensurate accuracy issues when using classical transient stability models for studying primary frequency response issues. 
 
-~Industry usage of deadbands is widely known, however, it is often overlooked in power system simulation.
-~ kou ref....
+% Industry usage of deadbands is widely known, however, it is often overlooked in power system simulation.
+% ~ kou ref....
 
 Transient stability simulation is useful for the study of primary frequency response, however there is little understanding of the impact of governor deadbands on valve travel of individual generating units. 
 Do deadbands really reduce overall valve travel? By how much? 
 Does a deadband on one unit increase overall valve travel of other units within the Balancing Authority (BA)? Outside of the BA? 
-It is difficult to answer these questions within the framework of a classical transient stability simulation due to the relatively small time frame of focus. 
+It is difficult to answer these questions within the framework of a classical transient stability simulation due to the relatively short time frame of focus. 
 These questions require the development of a simulation environment capable of simulating tens of minutes to hours.
+%To better understand how deadbands may affect system behavior, a long-term simulation would seem suitable.
+Long-term dynamic (LTD) simulation software focusing on governor dynamics was proposed in \cite{AGCCresap, DonnellyVoltageControl, Stajcar} and others, but has not been standardized nor fully developed.
 
-Stajcar !Cresap! and others (?) proposed solving the equations of motion for a single swing equation incorporating the entire aggregated system inertia in \cite{AGCCresap} and \cite{CarsonTaylor}. 
-Using this concept, the aggregate system frequency response can be reasonably captured. 
-In this work, the authors take the concept further to enable the study of governor deadbands over a much longer simulation duration than can be reasonably accomplished with classical transient stability simulation. 
 
-Edited Intro:
-Deadbands are commonly implemented in turbine speed governors to prevent a machine from responding to small frequency deviations that are ever present in electrical systems.
+% Stajcar !Cresap! and others (?) proposed solving the equations of motion for a single swing equation incorporating the entire aggregated system inertia in \cite{AGCCresap} and \cite{CarsonTaylor}. 
+% Using this concept, the aggregate system frequency response can be reasonably captured. 
+
+
 % combine previous work of NERC to FERC order
 % transient sims showing usefulness of simulation
 % transient sim not enough to answer long term and mulit-area questions
 % previous work done on LTD expanded upon
 
 % roadmap of paper
-This paper explores the impact of governor deadbands using a novel LTD simulation environment based on GE Energy's Positive Sequence Load Flow (PSLF) system models, dynamic data, and load flow solver. 
+In this work, the authors take the LTD simulation concept further to enable the study of governor deadbands over a much longer simulation duration than can be reasonably accomplished with classical transient stability simulation. 
+This paper explores the impact of governor deadbands using a novel LTD simulation environment based on the static models and nonlinear solver of GE Energy's Positive Sequence Load Flow (PSLF)\cite{PSLFUserManual}, coupled with an external ODE solver and related dynamic data. 
 Valve travel as a metric for comparing the impact of various deadband scenarios is proposed. 
 Section II describes the LTD simulation environment used to perform the studies while
 Section III discusses governor and deadband modeling within the simulation environment. 

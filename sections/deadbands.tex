@@ -1,9 +1,9 @@
 \section{Implementation of Deadbands}
-FERC requirements for governor droop and deadband are 5\% and 36 mHz respectively\cite{ferc2018}.
-However, practical implementation is left to generator operators.
+FERC Order 842 specifies for governor droop and deadband settings of 5\% and a maximum of 36 mHz respectively\cite{ferc2018}.
+Practical implementation of the terms of the Interconnection Agreement is left to generator operator. Several types of deadbands are currently used in practice.
 
 \subsection{Types of Deadbands}
-Fig. \ref{fig: deadbandType} presents implementations of deadbands that follow FERC requirements.
+Fig. \ref{fig: deadbandType} presents implementations of deadbands that meet FERC specifications.
 If a governor has no deadband, a change in output power is requested for any frequency deviation.
 A step deadband ignores any frequency smaller than the setpoint $\pm db_1$ and then steps to meet the set droop curve.
 A no-step deadband pushes the original droop curve away from the nominal frequency allowing for the droop curve to cross zero at $\pm db_2$ but never return to the step or no deadband droop curve.

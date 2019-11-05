@@ -1,26 +1,27 @@
 \section{Initial Results}
-Thirty minutes of random load noise was applied to the system where every governor in the system had an identical deadband.
+To assess long-term impacts of governor deadbands, thirty minutes of random load noise was applied to the study system where every governor in the system had an identical deadband.
 Each type of deadband shown in Fig. \ref{fig: deadbandType} was simulated.
-An experiment was also conducted to explore partial acceptance of the NERC recommendations presented in \cite{nercFRI2012}.
-While PSLTDSim can model AGC, it was not enabled for these simulations.
+An experiment was also conducted to explore partial acceptance of the NERC recommendations presented in \cite{nercFRI2012}. [MKD NOTE: I don't know what this means.]
+While PSLTDSim can model AGC, it was not enabled for these simulations. Approximately 20\% of generation was governor-enabled, and all governors had droop settings of 5\%.
 
 
-\subsection{System Modifications}
-The miniWECC system was modified to include three areas for simulation.
-PSLTDSim was used to set all area governor droops to 5\%.
-Some governors were removed from the system so that only $\approx$20\% of generation capacity in each area had governor control.
+%\subsection{System Modifications}
+% [MKDNOTE: discussion of BAs is not necessary because AGC is not enabled.]
+%The miniWECC system was modified to include three areas for simulation.
+%PSLTDSim was used to set all area governor droops to 5\%.
+%Some governors were removed from the system so that only $\approx$20\% of generation capacity in each area had governor control.
 %A generic AGC routine that filters area control error (ACE) through a proportional-intergal (PI)  controller was added to each area.
 %AGC messages are sent select generation units with governors representing $\approx$9\% of total generation capacity every 15 seconds.
 
 \subsection{System Noise Injection}
-Every time step, noise is injected into each load $P_{L,i}$ in the system according to
+At every time step, noise is injected into each load $P_{L,i}$ in the system according to
 \begin{align}
 P_{L,i} &= P_{L,i}(1 \pm N_Z Rand_i) \label{eq: noise}
 \end{align}
 where $N_Z$ represents the maximum amount of random noise to inject as a percent,
 and $Rand_i$ is a randomly generated number between 0 and 1 inclusive.
 The decision to add or subtract noise is chosen by another randomly generated number.
-As described, (\ref{eq: noise}) creates random walk behavior in load value that is representative of real power systems\cite{AGCCresap}.
+As described in \cite{AGCCresap}, (\ref{eq: noise}) creates random walk behavior in load value that is representative of real power systems.
 
 
 \subsection{Noise Simulation Results}

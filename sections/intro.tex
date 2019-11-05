@@ -29,20 +29,21 @@
 %In this work, the authors take the concept further to enable the study of governor deadbands over a much longer simulation duration than can be reasonably accomplished with classical transient stability simulation. 
 %
 %% Edited Intro:
-Deadbands are commonly implemented in turbine speed governors to prevent a machine from responding to small frequency deviations that are ever present in electrical systems.
+Turbine speed governors commonly implement deadbands to prevent a machine from responding to small frequency deviations that are ever present in electrical systems.
 % combine previous work of NERC to FERC order
-The North American Electric Reliability Corporation (NERC) has shown benefits of modifying governor deadbands  and recommended deadband settings in \cite{nercFRI2012} that the Federal Energy Regulatory Commission (FERC) has adopted as FERC Order 842\cite{ferc2018}.
+The North American Electric Reliability Corporation (NERC) has shown benefits of modifying governor deadbands in \cite{nercFRI2012}.
+The Federal Energy Regulatory Commission (FERC) has adopted NERC deadband recommendations from \cite{nercFRI2012} as FERC Order 842\cite{ferc2018}.
 % transient sims showing usefulness of simulation
 Industry usage of deadbands is widely known, however, it is often overlooked in power system simulation.
 Incorporating governor deadbands into transient simulation models has been shown to generate results that better match measured power system events\cite{kou2016}.
 % transient sim not enough to answer long term and mulit-area questions
-While transient stability simulation is useful for the study of primary frequency response, there is little understanding of the impact governor deadbands may have on valve travel in the long-term. 
+While transient stability simulation is useful for the study of primary frequency response, there is little understanding of the impact governor deadbands may have in the long-term. 
 Due to the time frame of focus involved with classical transient stability (CTS) simulation, the development of a simulation environment capable of simulating tens of minutes to hours is required. 
 % previous work done on LTD expanded upon
-Long-term dynamic (LTD) simulation software focusing on governor dynamics was proposed in \cite{AGCCresap} and others, but has not been standardized nor fully developed.
-The use of a single swing equation was proposed in \cite{Stajcar} for solving the equations of motion involved with an aggregated system inertia. 
-Using this concept, the aggregate system frequency response can be reasonably captured. 
-In this work, the authors take the concept further to enable the study of governor deadbands over a much longer simulation duration than can be reasonably accomplished with CTS simulation. 
+Long-term dynamic (LTD) simulation software has been proposed in \cite{AGCCresap, Stajcar, DonnellyVoltageControl}, but has yet to be standardized or fully developed.
+The use of a single swing equation, as proposed in \cite{AGCCresap} and \cite{Stajcar}, for solving the equations of motion involved with an aggregated system inertia, have been shown to produce an acceptable aggregate system frequency. 
+%Using this concept, the aggregate system frequency response can be reasonably captured. 
+In this work, the authors take this concept further to enable the study of governor deadbands over a much longer simulation duration than can be reasonably accomplished with CTS simulation. 
 
 % roadmap of paper
 This paper explores the impact of governor deadbands using a novel LTD simulation environment based on GE Energy's Positive Sequence Load Flow (PSLF) system models, dynamic data, and load flow solver. 

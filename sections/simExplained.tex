@@ -1,8 +1,8 @@
 \section{Long-Term Dynamic Simulation Technique}
 Time-sequenced power flow (TSPF) is a method for LTD simulation proven to generate useful results\cite{DonnellyVoltageControl}.
-The basic idea behind TSPF is to solve a power flow, represent system dynamics of interest independent of the power flow solver, `re-seed' the power flow with new values, and repeat.
+The basic idea behind TSPF is to solve a power flow, calculate system dynamics of interest independent of the power-flow solver, `re-seed' the power flow with new values, and repeat.
 %While this task is monotonous for humans, it is well suited for computers.
-A python based simulation software, Power System Long-Term Dynamic Simulator (PSLTDSim), has been developed to perform LTD simulations using TSPF.
+A Python based simulation software, Power System Long-Term Dynamic Simulator (PSLTDSim), has been developed to perform LTD simulations using TSPF.
 PSLTDSim has the ability to calculate system frequency, perform governor dynamics, model automatic generation control (AGC), and insert step, ramp, and noise type perturbances into a power system.
 
 %-------------------------------------------------------------------------------------
@@ -11,9 +11,9 @@ Due to the relatively large time steps of 1 second used with TSPF, numerous assu
 Ideal exciters were assumed as modern exicters are typically fast enough to maintain reference voltage under stable conditions.
 Intermachine oscillations were ignored since the time resolution used is not fine enough to capture these phenomena.
 
-Simplifications of transient stability models are used in PSLTDSim.
+Simplifications of CTSS models are used in PSLTDSim.
 The only parameters required to model a generator are the machine's rated MW, MVA base, and inertia.
-Additionally, a deadband modified tgov1 governor model, Fig. \ref{fig: tgov1BlockDiagram},  was created to model system governors.
+Additionally, a deadband modified tgov1 governor model, shown in Fig. \ref{fig: tgov1BlockDiagram},  was created to model turbine speed governors.
 
 \begin{figure}[!ht]
 	\centering
@@ -25,7 +25,8 @@ Additionally, a deadband modified tgov1 governor model, Fig. \ref{fig: tgov1Bloc
 %-------------------------------------------------------------------------------------
 \subsection{Modeling the System-Wide Frequency Response}
 Instead of frequency being calculated for every bus, a combined swing equation is used to model only one system frequency.
-As shown in (\ref{eq: CombinedSwingEq}), accelerating power from the entire system, as well as total system inertia $H_{PU, sys}$, is used to calculate $\dot{\omega}_{sys}$.
+As shown in (\ref{eq: CombinedSwingEq}), $\dot{\omega}_{sys}$ is calculated using accelerating power from the entire system, $P_{acc PU, sys}$, and total system inertia $H_{PU, sys}$.
+An aggregate system frequency can then be found by integrating $\dot{\omega}_{sys}$.
 
 \begin{align}
 \dot{\omega}_{sys} = \dfrac{1}{2H_{PU, sys} } \left( \dfrac{P_{acc PU, sys} }{\omega_{sys}} - D_{sys}\Delta\omega_{sys}  \right) \label{eq: CombinedSwingEq}
@@ -48,4 +49,3 @@ where $H$ has units of $MW\cdot s$.
 The new value for $P_{e, i}$ is used in the next power flow solution for each generator.
 %Once all accelerating power is distributed, the new value for each generators power output is used as initial conditions to solve a power flow. 
 If the difference between expected and resulting power supplied by the slack generator is larger than a set slack tolerance, the difference is redistributed according to (\ref{eq:distPacc}) until the resulting difference is below the slack tolerance, or a maximum number of iterations take place\cite{Stajcar}.
-% should probably cite stajcar

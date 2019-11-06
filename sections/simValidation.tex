@@ -1,5 +1,5 @@
 \section{Simulation Validation}
-To validate the chosen simulation approach, identical system perterbations were simulated in both the PSLF Dynamic Subsystem (PSDS), a classical transient stability simulation environment, and PSLTDSim.
+To validate the chosen simulation approach, identical system perturbations were simulated in both the PSLF Dynamic Subsystem (PSDS), an industry standard CTSS, and PSLTDSim.
 %The output data was then compared in MATLAB.
 Frequency comparisons were used to validate the single system frequency assumption calculated by PSLTDSim.
 Comparisons of governed generator mechanical power were used to validate governor action.
@@ -19,15 +19,15 @@ f_{w} &= \sum_{i=1}^{N} f_i \dfrac{H_{PU, i} M_{base, i} }{H_{sys}}  \label{eq: 
 %-------------------------------------------------------------------------------------
 \subsection{The MiniWECC System}
 
-The power system used for validation and valve travel experiments, the miniWECC shown in Fig. \ref{fig: miniWECC}, is a 120 bus 34 generator system created in PSLF.
+The power system used for validation and valve travel experiments, the `miniWECC' shown in Fig. \ref{fig: miniWECC}, is a 120 bus 34 generator system created in PSLF.
 The default miniWECC system was modified to include three areas for non-homogeneous deadband tests.
-All 21 governors in the miniWECC were modeled with the tgov1 governor, which enabled easier validation.
-Further details about the creation and use of the miniWECC may be found in \cite{trudnowski2012, sandia2015, RJminiWECC}.
+All 21 governors in the miniWECC were modeled with the deadband modified tgov1 governor.%, which enabled easier validation.
+More information about the creation and use of the miniWECC may be found in \cite{trudnowski2012} and \cite{sandia2015}.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.65\linewidth]{figures/miniWECC_split03}
-	\caption{MiniWECC system adapted from \cite{RJminiWECC}.}
+	\caption{MiniWECC system adapted from \cite{trudnowski2012}.}
 	\label{fig: miniWECC}
 \end{figure}
 
@@ -104,4 +104,5 @@ Fig. \ref{fig: rampPmdif} shows mechanical power differences of less than $\pm$1
 %-------------------------------------------------------------------------------------
 \subsection{Validation Summary}
 The validation results show that PSLTDSim accurately captures long term power system dyanmics. 
-The step test results show that PSLTDSim cannot replace classical transient stability simultion for the study of large, short-duration transient events, however repeated small perturbances are modeled with acceptable deviation from transient simulation methods.
+The step test results show that PSLTDSim cannot replace CTSS for the study of large, short-duration transient events.
+However, repeated small perturbances, such as those associated with ramps, are modeled with acceptable deviation from CTSS methods.

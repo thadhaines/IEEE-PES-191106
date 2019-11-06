@@ -1,10 +1,11 @@
 \section{Initial Results}
-To assess long-term impacts of governor deadbands, thirty minutes of random load noise was applied to the system where every governor in the system had an identical deadband.
+To assess long-term impacts of governor deadbands, thirty minutes of random load noise was applied to the miniWECC.
+All governors had identical deadband settings and
 PSLTDSim was used to set all governor droops to 5\%.
 Some governors were removed from the system so that only $\approx$20\% of generation capacity in each area had governor control.
 Each type of deadband shown in Fig. \ref{fig: deadbandType} was simulated.
 
-Another experiment was conducted to explore non-homogeneous deadbands where all area deadbands were set to the no-step variety, but two of the three areas had a deadband of 16.6 mHz while the third was set to 36 mHz.
+Another experiment was conducted to explore a non-homogeneous deadband scenario where all deadbands were the same type, but some had different mHz deadbands.
 Although PSLTDSim can model AGC, it was not enabled for any presented simulation.
 
 
@@ -23,7 +24,7 @@ As described in \cite{AGCCresap}, (\ref{eq: noise}) creates random walk behavior
 \subsection{Noise Simulation Results}
 
 $N_Z$ was set to 0.03 for all simulations. 
-The change in system loading caused by the added noise is shown in Fig. \ref{fig: systemLoading}.
+The change in system loading caused by the noise is shown in Fig. \ref{fig: systemLoading}.
 Fig. \ref{fig: sysFreqDB} shows the resulting system frequency for each type of deadband.
 The step deadband holds frequency almost exactly on the set deadband except when system loading decreases during minutes 7-11.
 The other deadband options maintain system frequency near their respective mHz setting until loading increases beyond a point near minute 17.
@@ -35,25 +36,12 @@ The other deadband options maintain system frequency near their respective mHz s
 \includegraphics[width=\linewidth]{figures/miniWECCuniAccPloadChange}
 \caption{Change in total system loading.}
 \label{fig: systemLoading}
-\end{figure}
-
+\end{figure}%
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\linewidth]{figures/miniWECCnoiseNLdroopDBFreq}
 \caption{System frequency response of various deadband scenarios.}
 \label{fig: sysFreqDB}
-\end{figure}
-
-The first three minutes of a single generators valve travel are shown in Fig. \ref{fig: valveComp} to compare how different deadbands affect movement.
-A step deadband will send pulse train-esq control signals to the governor valve when system frequency is oscillating over the deadband. 
-These repeated control pulses greatly increase valve travel over the more linear deadband options.
-%The no-step deadband matches valve movement of the no deadband case after an initial delay.
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=\linewidth]{figures/gen32ValveComp}
-\caption{Valve movement deadband comparisons.}
-\label{fig: valveComp}
 \end{figure}
 
 Table \ref{tab: valveTravel} summarizes the valve travel for each generator in the system over the entire 30 minute simulation. 
@@ -62,25 +50,39 @@ A step type deadband has the largest total travel while the no-step deadband has
 
 \input{tables/valveTravel}
 
+The first three minutes of a single generators valve travel are shown in Fig. \ref{fig: valveComp} to compare how different deadbands affect movement.
 
-\subsection{Partial Acceptance Simulation Results}
-To test partial acceptance of NERC deadband recommendations, 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\linewidth]{figures/gen32ValveComp}
+\caption{Valve movement deadband comparisons.}
+\label{fig: valveComp}
+\end{figure}
+
+A step deadband will send pulse train-esq control signals to the governor valve when system frequency is oscillating over the deadband. 
+These repeated control pulses greatly increase valve travel over the more linear deadband options.
+%The no-step deadband matches valve movement of the no deadband case after an initial delay.
+
+
+\subsection{Non-Homogeneous Deadband Simulation Results}
+With all governors using a no-step type deadband, two of the three areas mHz deadband was to 16.6 mHz while the third was set to 36 mHz.
 The resulting system frequency is shown in Fig. \ref{fig: uniFreq}.
+Individual valve travel for each generator is shown in {Table \ref{tab: valveTravel}} under the `No-Step Non-H' column, and Fig. \ref{fig: areaValveTravel} shows the average valve travel over time for each area.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\linewidth]{figures/miniWECCuniAccFreq}
-\caption{System frequency response to 0.03\% load noise where no-step deadbands have different area settings.}
+\caption{System frequency response to 0.03\% load noise where no-step deadbands have different settings.}
 \label{fig: uniFreq}
 \end{figure}
-
-As expected, the area with a larger deadband doesn't respond until after frequency drops below its deadband while the areas with smaller deadbands work to maintain frequency. 
-Individual valve travel for each generator is shown in Table \ref{tab: valveTravel} under the `No-Step Alt DB' column, and Fig. \ref{fig: areaValveTravel} shows average valve travel over time for each area.
-In this case, the governor valves with a smaller deadband travel three times more than those with a larger deadband.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\linewidth]{figures/miniWECCuniAccVTOverTime}
-\caption{Average valve travel by area.}
+\caption{Average valve travel by area for non-homogeneous deadband test.}
 \label{fig: areaValveTravel}
 \end{figure}
+
+As expected, governors with a larger deadband won't respond until after frequency drops below their deadband while governors with smaller deadbands work to maintain frequency. 
+In this case, the governor valves with a smaller deadband move three times more than those with a larger deadband even though total system valve movement is reduced from the homogeneous no-step scenario.
+

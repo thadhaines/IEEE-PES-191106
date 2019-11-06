@@ -1,17 +1,17 @@
 \section{Implementation of Deadbands}
-FERC Order 842 specifies governor droop of 5\% deadbands of a maximum 36 mHz\cite{ferc2018}.
-Several types of deadbands are currently used in practice as practical implementation is left to generator operators.
+FERC Order 842 specifies a droop of 5\% and governor deadbands of a maximum 36 mHz\cite{ferc2018}.
+In practice, several types of deadbands are currently used as physical control implementation is left to generator operators.
 
 \subsection{Types of Deadbands}
 Fig. \ref{fig: deadbandType} presents implementations of deadbands that meet FERC specifications.
 If a governor has no deadband, a change in output power is requested for any frequency deviation.
 A step deadband ignores any frequency smaller than the setpoint $\pm db_1$ and then steps to meet the set droop curve.
-A no-step deadband pushes the original droop curve away from the nominal frequency allowing for the droop curve to cross zero at $\pm db_2$ but never return to the step or no deadband droop curve.
+A no-step deadband pushes the original droop curve away from the nominal frequency allowing for the droop curve to cross zero at $\pm db_2$ but never returns to the step or no deadband droop curve.
 A non-linear deadband is introduced that linearly increases from $\pm \alpha$ to $\pm \beta$, after which it follows the original droop curve.
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\linewidth]{figures/dbAction3}
+	\includegraphics[width=\linewidth]{figures/db}
 	\caption{Different types of deadbands.}
 	\label{fig: deadbandType}
 \end{figure}

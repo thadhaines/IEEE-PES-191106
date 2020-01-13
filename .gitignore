@@ -11,3 +11,11 @@
 /IEEE-PES-191106.blg
 /IEEE-PES-191106.run.xml
 /IEEE-PES-191106.out
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.xml
+*.gz
